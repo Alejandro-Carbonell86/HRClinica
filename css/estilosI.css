@@ -3,3 +3,31 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(rgba(245, 245, 220, 0.6), rgba(245, 245, 220, 0.6)), url("/img/hospitalfondo.jpg");
+    background-size: cover;
+}
+
+main{
+    background-color: beige;
+    padding: 5%;
+    width: 50vh;
+    height: 80vh;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60vh;
+    align-items: center;
+}
+
+form input{
+    height: 5vh;
+}
