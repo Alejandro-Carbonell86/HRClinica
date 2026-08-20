@@ -1,33 +1,151 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ============================================
+   Este CSS hace que el login se vea bonito, 
+   se adapte a móviles y sea amigable.
+   ============================================ */
+
+/* 1. RESET GLOBAL - Quitamos márgenes y rellenos que el navegador mete por defecto */
+* {
+    margin: 0;             /* sin margen exterior */
+    padding: 0;            /* sin relleno interior */
+    box-sizing: border-box; /* el padding NO aumenta el ancho de la caja */
 }
 
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: linear-gradient(rgba(245, 245, 220, 0.6), rgba(245, 245, 220, 0.6)), url("/img/hospitalfondo.jpg");
-    background-size: cover;
+/* 2. FONDO CON GRADIENTE - Mezcla de morado y azul para que sea atractivo */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* fuente moderna */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* gradiente de 135° que va de azul a morado */
+    min-height: 100vh;     /* ocupa toda la altura de la pantalla */
+    display: flex;         /* activa flexbox para centrar */
+    justify-content: center; /* centra horizontalmente */
+    align-items: center;   /* centra verticalmente */
+    padding: 20px;         /* separación en móviles */
 }
 
-main{
-    background-color: beige;
-    padding: 5%;
-    width: 50vh;
-    height: 80vh;
+/* 3. TARJETA BLANCA - Donde está el formulario, como una "ventana" flotante */
+#tarjeta {
+    background: rgba(255, 255, 255, 0.95); /* blanco casi opaco */
+    backdrop-filter: blur(10px); /* efecto vidrio difuminado (moderno) */
+    padding: 2.5rem;       /* espacio interno de 40px */
+    border-radius: 20px;   /* esquinas redondeadas */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2); /* sombra que da profundidad */
+    width: 100%;           /* ocupa el ancho que pueda */
+    max-width: 420px;      /* pero no pasa de 420px */
+    transition: transform 0.3s ease; /* animación suave al mover el mouse */
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 60vh;
-    align-items: center;
+/* 4. EFECTO "FLOTA" - Cuando pasas el mouse, la tarjeta sube un poco */
+#tarjeta:hover {
+    transform: translateY(-5px); /* sube 5px */
 }
 
-form input{
-    height: 5vh;
+/* 5. FORMULARIO - Organiza los elementos en columna (uno abajo de otro) */
+form {
+    display: flex;         /* activa flexbox */
+    flex-direction: column; /* apila verticalmente */
+    gap: 12px;             /* espacio de 12px entre cada elemento */
+}
+
+/* 6. ETIQUETAS - Los textos que dicen "Usuario:" y "Contraseña:" */
+label {
+    font-weight: 600;      /* negrita */
+    color: #333;           /* gris oscuro */
+    font-size: 0.95rem;    /* tamaño de letra */
+    margin-top: 5px;       /* pequeño espacio arriba */
+}
+
+/* 7. CAMPOS DE TEXTO - Donde el usuario escribe */
+input[type="text"],
+input[type="password"] {
+    padding: 12px 15px;    /* espacio interno: arriba/abajo 12px, lados 15px */
+    border: 2px solid #e0e0e0; /* borde gris claro */
+    border-radius: 10px;   /* esquinas redondeadas */
+    font-size: 1rem;       /* tamaño de letra estándar */
+    transition: border-color 0.3s, box-shadow 0.3s; /* animación al enfocar */
+    background: #fafafa;   /* fondo gris muy clarito */
+}
+
+/* 8. CUANDO EL CAMPO ESTÁ SELECCIONADO (focus) - Cambia de color */
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #667eea; /* borde azul */
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2); /* sombra azul alrededor */
+    outline: none;         /* quita el borde azul feo por defecto */
+    background: white;     /* fondo blanco */
+}
+
+/* 9. BOTÓN "INICIO SESIÓN" - El más importante, tiene que llamar la atención */
+#boton {
+    background: linear-gradient(135deg, #667eea, #764ba2); /* mismo gradiente */
+    color: white;          /* texto blanco */
+    border: none;          /* sin borde */
+    padding: 14px;         /* espacio interno */
+    border-radius: 10px;   /* esquinas redondeadas */
+    font-size: 1.1rem;     /* letra un poco más grande */
+    font-weight: bold;     /* negrita */
+    cursor: pointer;       /* cursor de mano al pasar */
+    transition: transform 0.2s, box-shadow 0.2s; /* animación */
+    margin-top: 10px;      /* separación con lo de arriba */
+}
+
+/* 10. BOTÓN - Cuando pasas el mouse crece y da sombra */
+#boton:hover {
+    transform: scale(1.02); /* crece un 2% */
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4); /* sombra más fuerte */
+}
+
+/* 11. BOTÓN - Cuando haces clic (active) se encoge un poco */
+#boton:active {
+    transform: scale(0.98); /* se encoge 2% - da sensación de "presionado" */
+}
+
+/* 12. ENLACES - "Restablecer Contraseña" y "Registrar Usuario" */
+a {
+    text-decoration: none; /* quita el subrayado */
+    color: #667eea;        /* azul */
+    font-weight: 500;      /* semi-negrita */
+    transition: color 0.3s; /* animación al cambiar color */
+    text-align: center;    /* centra el texto */
+}
+
+/* 13. ENLACES - Cuando pasas el mouse cambian a morado y se subrayan */
+a:hover {
+    color: #764ba2;        /* morado */
+    text-decoration: underline; /* subrayado */
+}
+
+/* 14. ENLACES - Los párrafos dentro del enlace tienen separación */
+a p {
+    margin: 6px 0;         /* 6px arriba y abajo */
+    font-size: 0.95rem;    /* tamaño de letra */
+}
+
+/* 15. LÍNEA SEPARADORA - El primer enlace tiene una línea encima */
+a:first-of-type {
+    margin-top: 8px;       /* separación extra */
+    border-top: 1px solid #eee; /* línea gris muy clarita */
+    padding-top: 12px;     /* separación para que la línea no toque el texto */
+}
+
+/* ============================================
+   RESPONSIVE - Se adapta a pantallas pequeñas
+   ============================================ */
+
+/* 16. PARA MÓVILES (pantallas de hasta 480px de ancho) */
+@media (max-width: 480px) {
+    #tarjeta {
+        padding: 1.5rem;   /* menos espacio interno para que no se vea apretado */
+        border-radius: 16px; /* esquinas un poco menos redondeadas */
+    }
+    
+    #boton {
+        padding: 12px;     /* botón más compacto */
+        font-size: 1rem;   /* letra normal */
+    }
+    
+    input[type="text"],
+    input[type="password"] {
+        padding: 10px 12px; /* campos más pequeños */
+        font-size: 0.95rem; /* letra un poco más pequeña */
+    }
 }
