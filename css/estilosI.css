@@ -59,7 +59,7 @@ body {
     
     /* OPCIONAL: Si quieres que el logo sea circular (descomenta las líneas) */
     /* border-radius: 50%;    /* Hace la imagen circular */ 
-    /* box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra suave para darle relieve */ */
+    /* box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra suave para darle relieve */ 
 }
 
 /* 6. FORMULARIO - Organiza los elementos en columna (uno abajo de otro) */
