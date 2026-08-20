@@ -1,0 +1,223 @@
+/* ============================================
+   ESTILOS PARA REGISTRO DE FUNCIONARIO
+   Mismo estilo que el login (consistencia visual)
+   ============================================ */
+
+/* 1. RESET GLOBAL - Quitamos márgenes y rellenos que el navegador mete por defecto */
+* {
+    margin: 0;             /* sin margen exterior */
+    padding: 0;            /* sin relleno interior */
+    box-sizing: border-box; /* el padding NO aumenta el ancho de la caja */
+}
+
+/* 2. FONDO CON GRADIENTE - Mezcla de morado y azul para que sea atractivo */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* fuente moderna */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* gradiente de 135° que va de azul a morado */
+    min-height: 100vh;     /* ocupa toda la altura de la pantalla */
+    display: flex;         /* activa flexbox para centrar */
+    justify-content: center; /* centra horizontalmente */
+    align-items: center;   /* centra verticalmente */
+    padding: 20px;         /* separación en móviles */
+}
+
+/* 3. TARJETA BLANCA - Donde está el formulario, como una "ventana" flotante */
+#registro {
+    background: rgba(255, 255, 255, 0.95); /* blanco casi opaco */
+    backdrop-filter: blur(10px); /* efecto vidrio difuminado (moderno) */
+    padding: 2.5rem;       /* espacio interno de 40px */
+    border-radius: 20px;   /* esquinas redondeadas */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2); /* sombra que da profundidad */
+    width: 100%;           /* ocupa el ancho que pueda */
+    max-width: 480px;      /* un poco más ancho que el login por tener más campos */
+    transition: transform 0.3s ease; /* animación suave al mover el mouse */
+    
+    /* Centramos el contenido de la tarjeta */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 4. EFECTO "FLOTA" - Cuando pasas el mouse, la tarjeta sube un poco */
+#registro:hover {
+    transform: translateY(-5px); /* sube 5px */
+}
+
+/* 5. TÍTULO - Estilo consistente con el login */
+h1 {
+    font-size: 1.8rem;     /* tamaño grande pero proporcionado */
+    color: #333;           /* gris oscuro */
+    margin-bottom: 1.5rem; /* separación con el formulario */
+    text-align: center;    /* centrado */
+    font-weight: 600;      /* negrita */
+    /* Borde decorativo inferior */
+    border-bottom: 3px solid #667eea; /* línea azul abajo */
+    padding-bottom: 0.5rem; /* separación entre texto y línea */
+    width: 100%;           /* ocupa todo el ancho */
+}
+
+/* 6. FORMULARIO - Organiza los elementos en columna (uno abajo de otro) */
+#formularioRegistro {
+    display: flex;         /* activa flexbox */
+    flex-direction: column; /* apila verticalmente */
+    gap: 8px;              /* espacio de 8px entre cada elemento (más compacto) */
+    width: 100%;           /* ocupa todo el ancho de la tarjeta */
+}
+
+/* 7. ETIQUETAS - Los textos que dicen "Usuario:", "Contraseña:", etc. */
+label {
+    font-weight: 600;      /* negrita */
+    color: #333;           /* gris oscuro */
+    font-size: 0.9rem;     /* tamaño de letra un poco más pequeño */
+    margin-top: 8px;       /* separación arriba */
+}
+
+/* 8. CAMPOS DE TEXTO Y SELECT - Donde el usuario escribe o selecciona */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+select {
+    padding: 10px 14px;    /* espacio interno un poco más compacto */
+    border: 2px solid #e0e0e0; /* borde gris claro */
+    border-radius: 10px;   /* esquinas redondeadas */
+    font-size: 1rem;       /* tamaño de letra estándar */
+    transition: border-color 0.3s, box-shadow 0.3s; /* animación al enfocar */
+    background: #fafafa;   /* fondo gris muy clarito */
+    font-family: inherit;  /* hereda la fuente del body */
+    width: 100%;           /* todos ocupan el mismo ancho */
+}
+
+/* 9. CUANDO EL CAMPO ESTÁ SELECCIONADO (focus) - Cambia de color */
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: #667eea; /* borde azul */
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2); /* sombra azul alrededor */
+    outline: none;         /* quita el borde azul feo por defecto */
+    background: white;     /* fondo blanco */
+}
+
+/* 10. SELECT - Estilo específico para el desplegable */
+select {
+    appearance: auto;      /* mantiene la flecha nativa del navegador */
+    cursor: pointer;       /* cursor de mano al pasar */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666eea' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;   /* espacio para la flecha personalizada */
+}
+
+/* 11. BOTÓN DE ENVÍO (lo agregamos aunque no esté en el HTML, por si lo añades después) */
+/* Si no tienes botón en el HTML, esta regla no afecta */
+input[type="submit"],
+input[type="button"],
+button {
+    background: linear-gradient(135deg, #667eea, #764ba2); /* mismo gradiente */
+    color: white;          /* texto blanco */
+    border: none;          /* sin borde */
+    padding: 14px;         /* espacio interno */
+    border-radius: 10px;   /* esquinas redondeadas */
+    font-size: 1.1rem;     /* letra un poco más grande */
+    font-weight: bold;     /* negrita */
+    cursor: pointer;       /* cursor de mano al pasar */
+    transition: transform 0.2s, box-shadow 0.2s; /* animación */
+    margin-top: 16px;      /* separación con lo de arriba */
+    width: 100%;           /* ocupa todo el ancho */
+}
+
+/* 12. BOTÓN - Cuando pasas el mouse crece y da sombra */
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button:hover {
+    transform: scale(1.02); /* crece un 2% */
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4); /* sombra más fuerte */
+}
+
+/* 13. BOTÓN - Cuando haces clic (active) se encoge un poco */
+input[type="submit"]:active,
+input[type="button"]:active,
+button:active {
+    transform: scale(0.98); /* se encoge 2% - da sensación de "presionado" */
+}
+
+/* 14. ENLACE "VOLVER" - Consistente con los enlaces del login */
+a {
+    text-decoration: none; /* quita el subrayado */
+    color: #667eea;        /* azul */
+    font-weight: 500;      /* semi-negrita */
+    transition: color 0.3s; /* animación al cambiar color */
+    text-align: center;    /* centra el texto */
+    display: inline-block; /* permite aplicar padding y margen */
+    margin-top: 20px;      /* separación con el formulario */
+    font-size: 1rem;       /* tamaño estándar */
+}
+
+/* 15. ENLACE - Cuando pasas el mouse cambia a morado y se subraya */
+a:hover {
+    color: #764ba2;        /* morado */
+    text-decoration: underline; /* subrayado */
+}
+
+/* ============================================
+   RESPONSIVE - Se adapta a pantallas pequeñas
+   ============================================ */
+
+/* 16. PARA MÓVILES (pantallas de hasta 480px de ancho) */
+@media (max-width: 480px) {
+    #registro {
+        padding: 1.5rem;   /* menos espacio interno para que no se vea apretado */
+        border-radius: 16px; /* esquinas un poco menos redondeadas */
+        max-width: 100%;   /* ocupa todo el ancho disponible */
+    }
+    
+    h1 {
+        font-size: 1.4rem; /* título más pequeño en móviles */
+        margin-bottom: 1rem;
+    }
+    
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="number"],
+    select {
+        padding: 10px 12px; /* campos más compactos */
+        font-size: 0.95rem; /* letra un poco más pequeña */
+    }
+    
+    input[type="submit"],
+    input[type="button"],
+    button {
+        padding: 12px;     /* botón más compacto */
+        font-size: 1rem;   /* letra normal */
+    }
+    
+    label {
+        font-size: 0.85rem; /* etiquetas más pequeñas */
+    }
+}
+
+/* ============================================
+   MEJORAS PARA DISPOSITIVOS MUY PEQUEÑOS (hasta 360px)
+   ============================================ */
+@media (max-width: 360px) {
+    #registro {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 1.2rem;
+    }
+    
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="number"],
+    select {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+}

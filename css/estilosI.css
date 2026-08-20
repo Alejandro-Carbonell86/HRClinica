@@ -1,6 +1,5 @@
 /* ============================================
-   Este CSS hace que el login se vea bonito, 
-   se adapte a móviles y sea amigable.
+   ESTILOS PARA LOGIN CON LOGO
    ============================================ */
 
 /* 1. RESET GLOBAL - Quitamos márgenes y rellenos que el navegador mete por defecto */
@@ -32,6 +31,14 @@ body {
     width: 100%;           /* ocupa el ancho que pueda */
     max-width: 420px;      /* pero no pasa de 420px */
     transition: transform 0.3s ease; /* animación suave al mover el mouse */
+    
+    /* ============================================
+       NUEVO: Centramos el contenido de la tarjeta
+       ============================================ */
+    display: flex;         /* activa flexbox para organizar el contenido */
+    flex-direction: column; /* apila los elementos verticalmente */
+    align-items: center;   /* centra horizontalmente el logo y el formulario */
+    /* Esto hace que el logo quede centrado y el formulario también */
 }
 
 /* 4. EFECTO "FLOTA" - Cuando pasas el mouse, la tarjeta sube un poco */
@@ -39,14 +46,36 @@ body {
     transform: translateY(-5px); /* sube 5px */
 }
 
-/* 5. FORMULARIO - Organiza los elementos en columna (uno abajo de otro) */
+/* ============================================
+   NUEVO: ESTILOS PARA EL LOGO
+   ============================================ */
+
+/* 5. LOGO - Controlamos su tamaño para que no desborde */
+#tarjeta img {
+    width: 120px;          /* Ancho fijo para que no se descontrole */
+    height: auto;          /* La altura se ajusta automáticamente al ancho */
+    display: block;        /* Evita espacio extra debajo de la imagen (espacio inline) */
+    margin-bottom: 1.5rem; /* Separación entre el logo y el formulario (24px) */
+    
+    /* OPCIONAL: Si quieres que el logo sea circular (descomenta las líneas) */
+    /* border-radius: 50%;    /* Hace la imagen circular */ 
+    /* box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra suave para darle relieve */ */
+}
+
+/* 6. FORMULARIO - Organiza los elementos en columna (uno abajo de otro) */
 form {
     display: flex;         /* activa flexbox */
     flex-direction: column; /* apila verticalmente */
     gap: 12px;             /* espacio de 12px entre cada elemento */
+    
+    /* ============================================
+       NUEVO: El formulario ocupa todo el ancho
+       ============================================ */
+    width: 100%;           /* Ocupa todo el ancho de la tarjeta */
+    /* Esto evita que el formulario se encoja y quede desalineado */
 }
 
-/* 6. ETIQUETAS - Los textos que dicen "Usuario:" y "Contraseña:" */
+/* 7. ETIQUETAS - Los textos que dicen "Usuario:" y "Contraseña:" */
 label {
     font-weight: 600;      /* negrita */
     color: #333;           /* gris oscuro */
@@ -54,7 +83,7 @@ label {
     margin-top: 5px;       /* pequeño espacio arriba */
 }
 
-/* 7. CAMPOS DE TEXTO - Donde el usuario escribe */
+/* 8. CAMPOS DE TEXTO - Donde el usuario escribe */
 input[type="text"],
 input[type="password"] {
     padding: 12px 15px;    /* espacio interno: arriba/abajo 12px, lados 15px */
@@ -65,7 +94,7 @@ input[type="password"] {
     background: #fafafa;   /* fondo gris muy clarito */
 }
 
-/* 8. CUANDO EL CAMPO ESTÁ SELECCIONADO (focus) - Cambia de color */
+/* 9. CUANDO EL CAMPO ESTÁ SELECCIONADO (focus) - Cambia de color */
 input[type="text"]:focus,
 input[type="password"]:focus {
     border-color: #667eea; /* borde azul */
@@ -74,7 +103,7 @@ input[type="password"]:focus {
     background: white;     /* fondo blanco */
 }
 
-/* 9. BOTÓN "INICIO SESIÓN" - El más importante, tiene que llamar la atención */
+/* 10. BOTÓN "INICIO SESIÓN" - El más importante, tiene que llamar la atención */
 #boton {
     background: linear-gradient(135deg, #667eea, #764ba2); /* mismo gradiente */
     color: white;          /* texto blanco */
@@ -88,18 +117,18 @@ input[type="password"]:focus {
     margin-top: 10px;      /* separación con lo de arriba */
 }
 
-/* 10. BOTÓN - Cuando pasas el mouse crece y da sombra */
+/* 11. BOTÓN - Cuando pasas el mouse crece y da sombra */
 #boton:hover {
     transform: scale(1.02); /* crece un 2% */
     box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4); /* sombra más fuerte */
 }
 
-/* 11. BOTÓN - Cuando haces clic (active) se encoge un poco */
+/* 12. BOTÓN - Cuando haces clic (active) se encoge un poco */
 #boton:active {
     transform: scale(0.98); /* se encoge 2% - da sensación de "presionado" */
 }
 
-/* 12. ENLACES - "Restablecer Contraseña" y "Registrar Usuario" */
+/* 13. ENLACES - "Restablecer Contraseña" y "Registrar Usuario" */
 a {
     text-decoration: none; /* quita el subrayado */
     color: #667eea;        /* azul */
@@ -108,19 +137,19 @@ a {
     text-align: center;    /* centra el texto */
 }
 
-/* 13. ENLACES - Cuando pasas el mouse cambian a morado y se subrayan */
+/* 14. ENLACES - Cuando pasas el mouse cambian a morado y se subrayan */
 a:hover {
     color: #764ba2;        /* morado */
     text-decoration: underline; /* subrayado */
 }
 
-/* 14. ENLACES - Los párrafos dentro del enlace tienen separación */
+/* 15. ENLACES - Los párrafos dentro del enlace tienen separación */
 a p {
     margin: 6px 0;         /* 6px arriba y abajo */
     font-size: 0.95rem;    /* tamaño de letra */
 }
 
-/* 15. LÍNEA SEPARADORA - El primer enlace tiene una línea encima */
+/* 16. LÍNEA SEPARADORA - El primer enlace tiene una línea encima */
 a:first-of-type {
     margin-top: 8px;       /* separación extra */
     border-top: 1px solid #eee; /* línea gris muy clarita */
@@ -131,11 +160,19 @@ a:first-of-type {
    RESPONSIVE - Se adapta a pantallas pequeñas
    ============================================ */
 
-/* 16. PARA MÓVILES (pantallas de hasta 480px de ancho) */
+/* 17. PARA MÓVILES (pantallas de hasta 480px de ancho) */
 @media (max-width: 480px) {
     #tarjeta {
         padding: 1.5rem;   /* menos espacio interno para que no se vea apretado */
         border-radius: 16px; /* esquinas un poco menos redondeadas */
+    }
+    
+    /* ============================================
+       NUEVO: Logo más pequeño en móviles
+       ============================================ */
+    #tarjeta img {
+        width: 80px;        /* Reduce el logo en pantallas pequeñas (antes 120px) */
+        margin-bottom: 1rem; /* Menos separación en móviles (16px en vez de 24px) */
     }
     
     #boton {
