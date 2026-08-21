@@ -1,10 +1,15 @@
 <?php
+// 1. ACTIVAR ERRORES PARA VER QUÉ PASA
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once 'conexion.php';
 date_default_timezone_set('America/Montevideo');
 
-$usuario = $_POST['nombreU'];
+$usuario = $_POST['usuario'];
 $contrasenia = $_POST['contrasenia'];
-$nombre = $_POST['nombreC'];
+$nombre = $_POST['nombre'];
 $email = $_POST['email'];
 $rol = $_POST['rol'];
 $id_empleado = $_POST['numeroId'];
