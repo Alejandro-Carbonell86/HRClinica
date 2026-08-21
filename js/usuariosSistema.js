@@ -13,7 +13,7 @@ formulario.addEventListener('submit', async (e) => {
 
 
     try {
-        const respuesta = await fetch('/php/registrarUsuario.php', {
+        const respuesta = await fetch('../php/registrarUsuario.php', {
             method: 'POST',
             body: usuario
         });
