@@ -1,27 +1,28 @@
 const formulario = document.querySelector('#formularioRegistro');
 
-formulario.addEventListener('sumbit', async (e) => {
+formulario.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const usuario = {
-        usuario: formulario.nombreU.value,
-        contrasenia: formulario.contrasenia.value,
-        nombre: formulario.nombreC.value,
-        email: formulario.email.value,
-        rol: formulario.rol.value,
-        numeroId: formulario.numeroId.value
-    };
+    const usuario = new FormData();
+    usuario.append('usuario', formulario.nombreU.value);
+    usuario.append('contrasenia', formulario.contrasenia.value);
+    usuario.append('nombre', formulario.nombreC.value);
+    usuario.append('email', formulario.email.value);
+    usuario.append('rol', formulario.rol.value);
+    usuario.append('numeroId', formulario.numeroId.value);
 
-    try{
 
-        const respuesta = await fetch ('/php/registrarUsuario.php', {
+    try {
+        const respuesta = await fetch('/php/registrarUsuario.php', {
             method: 'POST',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify(usuario)
+            body: usuario
         });
-        const registro = await respuesta.json();
+        const registro = await respuesta.text();
+        if (registro === "ok") {
+            alert('Registro Exitoso');
+        }
         console.log('Registro exitoso: ', registro);
-    } catch (error){
+    } catch (error) {
         console.error('Error: ', error);
     }
 });
