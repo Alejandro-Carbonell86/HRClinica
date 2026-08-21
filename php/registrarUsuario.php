@@ -13,7 +13,7 @@ $nombre = $_POST['nombre'];
 $email = $_POST['email'];
 $rol = $_POST['rol'];
 $id_empleado = $_POST['numeroId'];
-$estado = "activo";
+$estado = 1;
 $fecha_hora = date('Y-m-d H:i:s');
 
 $stmt = $con->prepare("INSERT INTO usuarios_sistema (nombre_usuario, password_hash, nombre_completo, 
