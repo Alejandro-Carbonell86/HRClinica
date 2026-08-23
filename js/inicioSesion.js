@@ -1,7 +1,7 @@
 const formulario = document.querySelector('#inicio');
 
-formulario.addEventListener('submir', async (e)=> {
-    
+formulario.addEventListener('submit', async (e)=> {
+
     e.preventDefault();
 
     const datosI = new FormData();
