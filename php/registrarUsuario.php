@@ -1,8 +1,5 @@
 <?php
-// 1. ACTIVAR ERRORES PARA VER QUÉ PASA
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 
 require_once 'conexion.php';
 date_default_timezone_set('America/Montevideo');
@@ -15,6 +12,23 @@ $rol = $_POST['rol'];
 $id_empleado = $_POST['numeroId'];
 $estado = 1;
 $fecha_hora = date('Y-m-d H:i:s');
+
+$chequeo = $con->prepare("SELECT nombre_usuario, email FROM usuarios_sistema WHERE nombre_usuario = ? OR email = ?");
+$chequeo->bind_param('ss', $usuario, $email);
+$chequeo->execute();
+
+$resultado = $chequeo->get_result();
+
+if($resultado->num_rows > 0){
+    $fila = $resultado->fetch_assoc();
+
+    if($fila['nombre_usuario'] == $usuario){
+        echo "usuario existe";
+    }elseif($fila['email'] == $email){
+        echo "email existe";
+    }
+    exit;
+}
 
 $stmt = $con->prepare("INSERT INTO usuarios_sistema (nombre_usuario, password_hash, nombre_completo, 
 email, rol, id_empleado, activo, ultimo_acceso) VALUES (?,?,?,?,?,?,?,?)");
