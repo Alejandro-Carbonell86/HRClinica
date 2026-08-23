@@ -20,8 +20,8 @@ formulario.addEventListener('submit', async (e) => {
         const registro = await respuesta.text();
         if (registro === "ok") {
             alert('Registro Exitoso');
+            formulario.reset();
         }
-        console.log('Registro exitoso: ', registro);
     } catch (error) {
         console.error('Error: ', error);
     }
