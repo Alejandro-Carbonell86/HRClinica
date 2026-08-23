@@ -4,7 +4,7 @@ require_once 'conexion.php';
 $usuario = $_POST['usuario'];
 $contrasenia = $_POST['contrasenia'];
 
-$stmt = $con->prepare("SELECT nombre_usuario, password_hash FROM usuarios_sistema WHERE usuario = ?, password_hash = ?");
+$stmt = $con->prepare("SELECT nombre_usuario, password_hash FROM usuarios_sistema WHERE nombre_usuario = ?, password_hash = ?");
 $stmt->bind_param('ss', $usuario, $contrasenia);
 $stmt->execute();
 
