@@ -18,7 +18,7 @@ formulario.addEventListener('submit', async (e) => {
             body: usuario
         });
         const registro = await respuesta.text();
-        if (registro === "ok") {
+        if (registro.trim() === "ok") {
             alert('Registro Exitoso');
             formulario.reset();
         }

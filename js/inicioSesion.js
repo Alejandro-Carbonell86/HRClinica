@@ -16,5 +16,7 @@ formulario.addEventListener('submit', async (e)=> {
     const mensaje = await respuesta.text();
     if (mensaje.trim() === "error"){
         alert('Usuario o contraseña incorrecta');
+    }else{
+        window.location.href = '../paginas/dashboard.html';
     }
 })
