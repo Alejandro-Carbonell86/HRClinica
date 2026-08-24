@@ -13,6 +13,9 @@ $id_empleado = $_POST['numeroId'];
 $estado = 1;
 $fecha_hora = date('Y-m-d H:i:s');
 
+
+$hash = password_hash($contrasenia, PASSWORD_BCRYPT);
+
 $chequeo = $con->prepare("SELECT nombre_usuario, email FROM usuarios_sistema WHERE nombre_usuario = ? OR email = ?");
 $chequeo->bind_param('ss', $usuario, $email);
 $chequeo->execute();
@@ -33,7 +36,7 @@ if($resultado->num_rows > 0){
 $stmt = $con->prepare("INSERT INTO usuarios_sistema (nombre_usuario, password_hash, nombre_completo, 
 email, rol, id_empleado, activo, ultimo_acceso) VALUES (?,?,?,?,?,?,?,?)");
 
-$stmt->bind_param('sssssiss', $usuario, $contrasenia, $nombre, $email, $rol, 
+$stmt->bind_param('sssssiss', $usuario, $hash, $nombre, $email, $rol, 
 $id_empleado, $estado, $fecha_hora);
 
 if($stmt->execute()){
