@@ -8,7 +8,7 @@ formulario.addEventListener('submit', async (e)=> {
     datosI.append('usuario', formulario.usuario.value);
     datosI.append('contrasenia', formulario.contrasenia.value);
 
-    const respuesta = await fetch ('../php/inicioSesion.php', {
+    const respuesta = await fetch ('./php/inicioSesion.php', {
         method: 'POST',
         body: datosI
     });
