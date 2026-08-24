@@ -15,7 +15,6 @@ formulario.addEventListener('submit', async (e)=> {
 
     const mensaje = await respuesta.text();
     console.log('Error:', mensaje);
-    return;
     if (mensaje.trim() === "error"){
         alert('Usuario incorrecto');
     }else if(mensaje.trim() === "incorrecta"){
