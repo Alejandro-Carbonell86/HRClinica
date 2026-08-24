@@ -20,6 +20,6 @@ formulario.addEventListener('submit', async (e)=> {
     }else if(mensaje.trim() === "incorrecta"){
         alert('Contraseña Incorrecta');
     }else if (mensaje.trim() === "ok") {
-        window.location.href = '../paginas/dashboard.html';
+        window.location.href = './paginas/dashboard.html';
     }
 })
