@@ -17,8 +17,10 @@ formulario.addEventListener('submit', async (e)=> {
     console.log('Error:', mensaje);
     return;
     if (mensaje.trim() === "error"){
-        alert('Usuario o contraseña incorrecta');
-    }else{
+        alert('Usuario incorrecto');
+    }else if(mensaje.trim() === "incorrecta"){
+        alert('Contraseña Incorrecta');
+    }else if (mensaje.trim() === "ok") {
         window.location.href = '../paginas/dashboard.html';
     }
 })
