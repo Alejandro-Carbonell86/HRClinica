@@ -19,13 +19,21 @@ if($resultado->num_rows === 0){
 
 $fila = $resultado->fetch_assoc();
 
+
+header('Content-Type: application/json');
+
 if (password_verify($contrasenia, $fila['password_hash'])){
-    $_SESSION['ID_Empleado'] = $fila['id_empleado'];
+    $_SESSION['id_empleado'] = $fila['id_empleado'];
     $_SESSION['usuario'] = $fila['nombre_usuario'];
+    $_SESSION['nombre'] = $fila['nombre_completo'];
+    $_SESSION['email'] = $fila['email'];
     $_SESSION['rol'] = $fila['rol'];
-    echo "ok";
+    $_SESSION['id_usuario'] = $fila['id_usuario'];
+    
+    echo json_encode($fila);
 } else {
-    echo "incorrecta";
+
+    echo json_encode(['error' => 'Contraseña incorrecta']);
 }
 
 $stmt->close();

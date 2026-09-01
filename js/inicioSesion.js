@@ -1,6 +1,6 @@
 const formulario = document.querySelector('#inicio');
 
-formulario.addEventListener('submit', async (e)=> {
+formulario.addEventListener('submit', async (e) => {
 
     e.preventDefault();
 
@@ -8,18 +8,16 @@ formulario.addEventListener('submit', async (e)=> {
     datosI.append('usuario', formulario.usuario.value);
     datosI.append('contrasenia', formulario.contrasenia.value);
 
-    const respuesta = await fetch ('/HR_Clinica/php/inicioSesion.php', {
+    const respuesta = await fetch('/HR_Clinica/php/inicioSesion.php', {
         method: 'POST',
         body: datosI
     });
 
-    const mensaje = await respuesta.text();
-    console.log('Error:', mensaje);
-    if (mensaje.trim() === "error"){
-        alert('Usuario incorrecto');
-    }else if(mensaje.trim() === "incorrecta"){
-        alert('Contraseña Incorrecta');
-    }else if (mensaje.trim() === "ok") {
+    const objetoJSON = await respuesta.json();
+
+    if (objetoJSON.error) {
+        alert(objetoJSON.error);
+    } else if (objetoJSON.success) {
         window.location.href = './paginas/dashboard.html';
     }
 })
