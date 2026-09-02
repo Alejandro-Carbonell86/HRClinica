@@ -1,0 +1,424 @@
+/* ============================================
+   ESTILOS AMIGABLES - Gestión de Documentos
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+/* ============================================
+   HEADER - Ocupa todo el ancho
+   ============================================ */
+header {
+    width: 100%;
+    max-width: 900px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 28px 35px;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header h1::before {
+    content: "📄";
+    font-size: 2.2rem;
+}
+
+header .badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL - Tarjeta blanca
+   ============================================ */
+.contenedor-principal {
+    width: 100%;
+    max-width: 900px;
+    background: white;
+    border-radius: 0 0 20px 20px;
+    padding: 35px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/* ============================================
+   SECCIÓN IZQUIERDA - Formulario
+   ============================================ */
+.seccion-izquierda {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ============================================
+   SECCIÓN DERECHA - Lista y botones
+   ============================================ */
+.seccion-derecha {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ============================================
+   TÍTULOS DE SECCIÓN
+   ============================================ */
+.titulo-seccion {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2d3748;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #edf2f7;
+}
+
+.titulo-seccion .icono {
+    font-size: 1.3rem;
+}
+
+.titulo-seccion .badge-nuevo {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-left: auto;
+}
+
+/* ============================================
+   FORMULARIO
+   ============================================ */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+label {
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+label .label-icon {
+    font-size: 1.1rem;
+}
+
+/* ============================================
+   INPUTS
+   ============================================ */
+input[type="text"] {
+    padding: 14px 18px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background: #f7fafc;
+    width: 100%;
+}
+
+input[type="text"]:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    outline: none;
+    background: white;
+}
+
+input[type="text"]::placeholder {
+    color: #a0aec0;
+}
+
+input[type="file"] {
+    padding: 14px 18px;
+    border: 2px dashed #cbd5e0;
+    border-radius: 12px;
+    background: #fafbfc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+input[type="file"]:hover {
+    border-color: #667eea;
+    background: #f0f2ff;
+}
+
+input[type="file"]::file-selector-button {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+}
+
+input[type="file"]::file-selector-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+#carga_documento {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    width: 100%;
+}
+
+#carga_documento:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+}
+
+#carga_documento:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+}
+
+#boton {
+    background: white;
+    color: #667eea;
+    border: 2px solid #667eea;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#boton:hover {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+#boton:active {
+    transform: translateY(1px);
+}
+
+/* ============================================
+   SELECT
+   ============================================ */
+#listaDoc {
+    padding: 14px 18px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    background: #f7fafc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath fill='%23667eea' d='M7 10L1 4h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    padding-right: 45px;
+}
+
+#listaDoc:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    outline: none;
+    background-color: white;
+}
+
+#listaDoc option {
+    padding: 10px;
+}
+
+#listaDoc option[value=""] {
+    color: #a0aec0;
+}
+
+/* ============================================
+   MENSAJE
+   ============================================ */
+#mensaje {
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-align: center;
+    display: none;
+    animation: slideDown 0.4s ease;
+    margin-top: 5px;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#mensaje.exito {
+    display: block;
+    background: #f0fff4;
+    color: #22543d;
+    border-left: 4px solid #48bb78;
+}
+
+#mensaje.error {
+    display: block;
+    background: #fff5f5;
+    color: #9b2c2c;
+    border-left: 4px solid #fc8181;
+}
+
+/* ============================================
+   SEPARADOR VISUAL - Solo en móviles
+   ============================================ */
+.separador-movil {
+    display: none;
+}
+
+/* ============================================
+   RESPONSIVE - Tablets
+   ============================================ */
+@media (max-width: 768px) {
+    .contenedor-principal {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 25px;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+        padding: 22px 25px;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    header .badge {
+        font-size: 0.8rem;
+        padding: 6px 16px;
+    }
+
+    .separador-movil {
+        display: block;
+        border: none;
+        border-top: 2px solid #edf2f7;
+        margin: 5px 0;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - Móviles
+   ============================================ */
+@media (max-width: 480px) {
+    body {
+        padding: 15px 10px;
+    }
+
+    .contenedor-principal {
+        padding: 20px;
+        border-radius: 0 0 16px 16px;
+    }
+
+    header {
+        padding: 18px 20px;
+        border-radius: 16px 16px 0 0;
+    }
+
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    header h1::before {
+        font-size: 1.8rem;
+    }
+
+    header .badge {
+        font-size: 0.7rem;
+        padding: 5px 12px;
+    }
+
+    input[type="text"],
+    input[type="file"],
+    #listaDoc {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+    }
+
+    #carga_documento,
+    #boton {
+        padding: 14px;
+        font-size: 0.95rem;
+    }
+
+    .titulo-seccion {
+        font-size: 1rem;
+    }
+
+    #mensaje {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargar Documento</title>
+    <link rel="stylesheet" href="../css/estilosDOC.css">
+</head>
+
+<body>
+<header>
+    <h1>Cargar Documento</h1>
+</header>
+    <form>
+        <label for="nombre_archivo">Nombre Archivo:</label>
+        <input type="text" id="nombre_archivo" name="nombre">
+
+        <label for="documento">Seleccionar Documento:</label>
+        <input type="file" id="documento">
+
+        <input type="submit" id="carga_documento" value="Subir">
+    </form>
+
+    <div id="mensaje"></div>
+
+
+    <button id="boton">Obtener Documento</button>
+
+
+    <select name="listaDoc" id="listaDoc"></select>
+
+    <script src="documento.js"></script>
+</body>
+
+</html>
