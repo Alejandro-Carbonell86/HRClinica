@@ -16,7 +16,8 @@ $fecha_hora = date('Y-m-d H:i:s');
 
 $hash = password_hash($contrasenia, PASSWORD_BCRYPT);
 
-$chequeo = $con->prepare("SELECT nombre_usuario, email FROM usuarios_sistema WHERE nombre_usuario = ? OR email = ?");
+$chequeo = $con->prepare("SELECT nombre_usuario, email FROM usuarios_sistema 
+WHERE nombre_usuario = ? OR email = ?");
 $chequeo->bind_param('ss', $usuario, $email);
 $chequeo->execute();
 

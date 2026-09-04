@@ -17,7 +17,7 @@ formulario.addEventListener('submit', async (e) => {
 
     if (objetoJSON.error) {
         alert(objetoJSON.error);
-    } else if (objetoJSON.success) {
+    } else if (objetoJSON.exito) {
         window.location.href = './paginas/dashboard.html';
     }
 })

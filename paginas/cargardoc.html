@@ -9,9 +9,9 @@
 </head>
 
 <body>
-<header>
-    <h1>Cargar Documento</h1>
-</header>
+    <header>
+        <h1>Cargar Documento</h1>
+    </header>
     <form>
         <label for="nombre_archivo">Nombre Archivo:</label>
         <input type="text" id="nombre_archivo" name="nombre">
@@ -24,13 +24,14 @@
 
     <div id="mensaje"></div>
 
+    <section id="obtener">
 
-    <button id="boton">Obtener Documento</button>
+        <button id="boton">Obtener Documento</button>
 
+        <select name="listaDoc" id="listaDoc"></select>
 
-    <select name="listaDoc" id="listaDoc"></select>
-
-    <script src="documento.js"></script>
+    </section>
+    <script src="../js/cargar.js"></script>
 </body>
 
 </html>

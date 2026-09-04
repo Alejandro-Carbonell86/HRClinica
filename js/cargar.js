@@ -11,27 +11,26 @@ subir.addEventListener('click', async (e) => {
     doc.append('nombre', nombre.value);
     doc.append('archivo', documento.files[0]);
 
-    let respuesta = await fetch('cargar_doc.php', {
+    let respuesta = await fetch('/HR_Clinica/php/cargar_doc.php', {
         method: 'POST',
         body: doc
     });
 
-    let mensaje = await respuesta.text();
+    let mensaje = await respuesta.json();
+    console.log('Datos recibidos:', mensaje);
 
-
-    if (mensaje === "OK") {
-        mensaje_carga.textContent = "Archivo guardado correctamente";
-        mensaje_carga.style.color = "green";
-    } else {
-        mensaje_carga.textContent = "Error al guardarel archivo, intente de nuevo";
-        mensaje_carga.style.color = "red";
+    if (mensaje.exito){
+        alert('Archivo guardado correctamente');
+        document.getElementById('formularioCarga').reset();
+    }else{
+        alert(mensaje.mensaje);
     }
 })
 
 
 boton.addEventListener('click', async () => {
 
-    let dato = await fetch('obtener_doc.php');
+    let dato = await fetch('/HR_Clinica/php/obtener_doc.php');
     let documentos = await dato.json();
 
 
