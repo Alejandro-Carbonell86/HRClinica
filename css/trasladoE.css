@@ -1,0 +1,108 @@
+/* ============================================
+   ESTILOS PARA GESTIÓN DE TRASLADOS
+   ============================================ */
+
+/* 1. RESET GLOBAL - Quita márgenes y rellenos por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. FONDO Y ESTRUCTURA GENERAL - Fondo con gradiente centrado */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* 3. ENCABEZADO - Ocupa todo el ancho superior */
+#encabezado {
+    width: 100%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#encabezado h1 {
+    font-size: 2rem;
+    color: #333;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 4. CONTENEDOR CENTRAL - Cuadrícula (Grid) para la distribución requerida */
+#central {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    /* 1fr a la izquierda (registrar) y 2fr a la derecha (visualizar) para que ocupe más espacio */
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+        "registrar  visualizar"
+        "listar     listar"; /* Listar queda abajo ocupando ambos lados */
+    gap: 20px;
+}
+
+/* 5. TARJETAS DE LOS ARTÍCULOS - Mismo estilo translúcido */
+article {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 200px; /* Altura mínima para visualizar áreas vacías */
+}
+
+/* 6. EFECTO "FLOTA" EN TARJETAS */
+article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* 7. ASIGNACIÓN DE POSICIONES EN EL GRID */
+#registrar {
+    grid-area: registrar;
+}
+
+#visualizar {
+    grid-area: visualizar;
+}
+
+#listar {
+    grid-area: listar;
+}
+
+/* ============================================
+   RESPONSIVE - Se adapta a pantallas medianas y móviles
+   ============================================ */
+
+/* 8. PARA TABLETS Y MÓVILES (hasta 768px) - Pasa a 1 sola columna vertical */
+@media (max-width: 768px) {
+    #central {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "registrar"
+            "visualizar"
+            "listar";
+    }
+
+    #encabezado h1 {
+        font-size: 1.5rem;
+    }
+
+    article {
+        padding: 1.5rem;
+    }
+}

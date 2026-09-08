@@ -1,4 +1,74 @@
-#documentos{
-    visibility: hidden;
+/* ============================================
+   ESTILOS PARA PANEL CENTRAL (DASHBOARD)
+   ============================================ */
+
+/* 1. RESET GLOBAL - Quitamos márgenes y rellenos por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* 2. FONDO CON GRADIENTE - Mismo gradiente morado y azul centrado */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;  /* Apila los elementos verticalmente */
+    justify-content: center; /* Centra los botones verticalmente */
+    align-items: center;     /* Centra los botones horizontalmente */
+    padding: 20px;
+    gap: 16px;              /* Espaciado uniforme entre botones */
+}
+
+/* 3. ENLACE CONTENEDOR - Asegura que el enlace del botón 'Documentos' ocupe el ancho correcto */
+a {
+    text-decoration: none;  /* Quita el subrayado del enlace */
+    width: 100%;
+    max-width: 320px;       /* Ancho máximo uniforme para los botones */
+    display: block;
+}
+
+/* 4. BOTONES DEL PANEL - Estilo idéntico a los botones de tu plantilla */
+button {
+    background: linear-gradient(135deg, #667eea, #764ba2); /* Mismo gradiente */
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 12px;    /* Esquinas redondeadas suaves */
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    max-width: 320px;       /* Mantiene el mismo ancho que los enlaces */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra suave de profundidad */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animación fluida */
+}
+
+/* 5. EFECTO "HOVER" - Al pasar el cursor, el botón eleva su tamaño y sombra */
+button:hover {
+    transform: translateY(-3px) scale(1.02); /* Sube ligeramente y crece 2% */
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4); /* Sombra azul más intensa */
+}
+
+/* 6. EFECTO "ACTIVE" - Sensación táctil de presionado */
+button:active {
+    transform: translateY(0) scale(0.98); /* Se hunde ligeramente */
+}
+
+/* ============================================
+   RESPONSIVE - Adaptación a pantallas pequeñas
+   ============================================ */
+
+/* 7. PARA MÓVILES (hasta 480px) */
+@media (max-width: 480px) {
+    button, a {
+        max-width: 100%; /* Los botones se adaptan al ancho disponible */
+    }
+
+    button {
+        padding: 14px 20px;
+        font-size: 1rem;
+    }
+}

@@ -17,7 +17,6 @@ subir.addEventListener('click', async (e) => {
     });
 
     let mensaje = await respuesta.json();
-    console.log('Datos recibidos:', mensaje);
 
     if (mensaje.exito){
         alert('Archivo guardado correctamente');
