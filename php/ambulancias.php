@@ -14,7 +14,7 @@ $activo = 1;
 
 $stmt = $con->prepare("INSERT INTO ambulancias (matricula, marca, modelo, ano, tipo, capacidad, 
 fecha_ultimo_mantenimiento, activo) VALUES (?,?,?,?,?,?,?,?)");
-$stmt->bind_param('sssisisi', $matricula, $marca, $modelo, $ano, $tipo, $capacidad, $fecha, $activo);
+$stmt->bind_param('sssssisi', $matricula, $marca, $modelo, $ano, $tipo, $capacidad, $fecha, $activo);
 
 header('Content-Type: application/json');
 

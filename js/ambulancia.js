@@ -22,6 +22,7 @@ formulario.addEventListener('submit', async(e)=> {
 
     if(mensaje.estado){
         alert('Ambulancia Guardada Correctamente');
+        formulario.reset();
     }else{
         alert('Error al guardar ambulancia');
     }
