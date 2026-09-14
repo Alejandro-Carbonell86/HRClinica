@@ -5,7 +5,7 @@ session_start();
 $usuario = $_POST['usuario'];
 $contrasenia = $_POST['contrasenia'];
 
-$stmt = $con->prepare("SELECT nombre_usuario, password_hash FROM 
+$stmt = $con->prepare("SELECT * FROM 
 usuarios_sistema WHERE nombre_usuario = ?");
 $stmt->bind_param('s', $usuario);
 $stmt->execute();

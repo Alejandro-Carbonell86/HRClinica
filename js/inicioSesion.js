@@ -10,7 +10,8 @@ formulario.addEventListener('submit', async (e) => {
 
     const respuesta = await fetch('/HR_Clinica/php/inicioSesion.php', {
         method: 'POST',
-        body: datosI
+        body: datosI,
+        credentials: 'same-origin'
     });
 
     const objetoJSON = await respuesta.json();

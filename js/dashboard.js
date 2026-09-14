@@ -1,6 +1,12 @@
-const traslados = document.getElementById('traslados');
-const documentos = document.getElementById('documentos');
+document.addEventListener('DOMContentLoaded', async()=>{
+    const respuesta = await fetch('/HR_Clinica/php/verifica.php', {
+        credentials: 'same-origin'
+    })
 
-traslados.addEventListener('click', ()=> {
-documentos.style.visibility = "visible";
+    if(respuesta.status === 401){
+        window.location.href = '/HR_Clinica/index.html';
+    }else{
+        const usuario = await respuesta.json();
+        document.getElementById('usuarioId').textContent = usuario.usuario;
+    }
 })

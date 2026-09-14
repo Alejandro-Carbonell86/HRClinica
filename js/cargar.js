@@ -29,7 +29,7 @@ subir.addEventListener('click', async (e) => {
 
 boton.addEventListener('click', async () => {
 
-    let dato = await fetch('/HR_Clinica/php/obtener_doc.php');
+    let dato = await fetch('../php/obtener_doc.php');
     let documentos = await dato.json();
 
 

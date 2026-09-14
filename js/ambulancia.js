@@ -14,7 +14,8 @@ formulario.addEventListener('submit', async(e)=> {
 
     const respuesta = await fetch('../php/ambulancias.php', {
         method: 'POST',
-        body: ambulancia
+        body: ambulancia,
+        credentials: 'same-origin'
     })
 
     let mensaje = await respuesta.json();
