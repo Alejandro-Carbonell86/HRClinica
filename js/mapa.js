@@ -15,13 +15,10 @@ const ImagenMarcador = L.icon({
 const marcador = L.marker([-34.9011, -56.1645], { draggable: true, icon: ImagenMarcador }).addTo(mapa);
 const insertlat = document.getElementById('lat');
 const insertlng = document.getElementById('lng');
-const marcadorDestino = L.marker([-34.9011, -56.1645], {draggable:true, icon: ImagenMarcador}).addTo(mapa);
 
 ingresarO.addEventListener('click', ()=>{
     let lugarO = marcador.getLatLng();
-    alert(lugarO.lat);
-
     insertlat.value = lugarO.lat;
     insertlng.value = lugarO.lng;
-
+    const marcadorDestino = L.marker([-34.900362955713476, -56.163353436677056], {draggable:true, icon: ImagenMarcador}).addTo(mapa);
 })
