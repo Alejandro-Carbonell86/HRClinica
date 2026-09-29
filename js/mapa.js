@@ -11,10 +11,11 @@ const ImagenMarcador = L.icon({
     iconUrl: '../img/ambulancia.png',
     iconSize: [38, 45]
 })
-// 3. Colocamos marcado de origen
+
 const marcador = L.marker([-34.9011, -56.1645], { draggable: true, icon: ImagenMarcador }).addTo(mapa);
 const insertlat = document.getElementById('lat');
 const insertlng = document.getElementById('lng');
+const marcadorDestino = L.marker([-34.9011, -56.1645], {draggable:true, icon: ImagenMarcador}).addTo(mapa);
 
 ingresarO.addEventListener('click', ()=>{
     let lugarO = marcador.getLatLng();
