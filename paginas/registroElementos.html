@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Elemento de Traslado</title>
+    <link rel="stylesheet" href="../css/estilosUS.css">
+</head>
+<body>
+    <main id="registro">
+
+        <h1>Registro de Elementos de Traslado</h1>
+
+        <form id="formularioElemento">
+
+            <label for="tipo">Tipo de Traslado:</label>
+            <select name="tipo" id="tipo">
+                <!-- Se llena con JS desde la BD -->
+            </select>
+
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+
+            <label for="descripcion">Descripción:</label>
+            <input type="text" id="descripcion" name="descripcion">
+
+            <label for="condicion">Requiere Condición Especial:</label>
+            <select name="condicion" id="condicion">
+                <option value="0">No</option>
+                <option value="1">Sí</option>
+            </select>
+
+            <input type="submit" id="boton" name="boton" value="Registrar">
+
+        </form>
+
+        <a href="../index.html">Volver</a>
+    </main>
+    <script src="../js/elementos.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Ambulancia</title>
+    <link rel="stylesheet" href="../css/estilosUS.css">
+</head>
+<body>
+    <main id="registro">
+
+        <h1>Registro de Ambulancias</h1>
+
+        <form id="formularioAmbulancia">
+
+            <label for="matricula">Matrícula:</label>
+            <input type="text" id="matricula" name="matricula">
+
+            <label for="marca">Marca:</label>
+            <input type="text" id="marca" name="marca">
+
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo">
+
+            <label for="ano">Año:</label>
+            <input type="text" id="ano" name="ano">
+
+            <label for="tipo">Tipo:</label>
+            <select name="tipo" id="tipo">
+                <option value="uti_movil">UTI Móvil</option>
+                <option value="medicalizada">Medicalizada</option>
+                <option value="basica">Básica</option>
+            </select>
+
+            <label for="capacidad">Capacidad:</label>
+            <input type="number" id="capacidad" name="capacidad">
+
+            <label for="mantenimiento">Fecha Último Mantenimiento:</label>
+            <input type="date" id="mantenimiento" name="mantenimiento">
+
+            <input type="submit" id="boton" name="boton" value="Registrar">
+
+        </form>
+
+        <a href="../index.html">Volver</a>
+    </main>
+    <script src="../js/ambulancias.js"></script>
+</body>
+</html>

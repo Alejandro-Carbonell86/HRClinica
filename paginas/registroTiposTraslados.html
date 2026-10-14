@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Tipo de Traslado</title>
+    <link rel="stylesheet" href="../css/estilosUS.css">
+</head>
+<body>
+    <main id="registro">
+
+        <h1>Registro de Tipos de Traslado</h1>
+
+        <form id="formularioTipoTraslado">
+
+            <label for="nombre">Nombre del Tipo:</label>
+            <input type="text" id="nombre" name="nombre">
+
+            <label for="descripcion">Descripción:</label>
+            <input type="text" id="descripcion" name="descripcion">
+
+            <label for="equipo">Requiere Equipo Especial:</label>
+            <select name="equipo" id="equipo">
+                <option value="0">No</option>
+                <option value="1">Sí</option>
+            </select>
+
+            <input type="submit" id="boton" name="boton" value="Registrar">
+
+        </form>
+
+        <a href="../index.html">Volver</a>
+    </main>
+    <script src="../js/tiposTraslado.js"></script>
+</body>
+</html>
