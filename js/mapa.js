@@ -88,10 +88,5 @@ ubicar.addEventListener('click', async () => {
 
     L.polyline(dibujo, { color: 'blue', weight: 5 }).addTo(mapa);
 
-    // 6) Ajustar vista a la ruta
     mapa.fitBounds(L.polyline(dibujo).getBounds());
 })
-
-function async(){
-    
-}

@@ -2,8 +2,6 @@
 require_once 'conexion.php';
 
 
-
-
 $sql = "SELECT * FROM documento";
 
 $resultado = $con->query($sql);
