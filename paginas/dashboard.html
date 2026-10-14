@@ -7,12 +7,30 @@
     <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 <body>
-    <p id="usuarioId"></p>
-    <a href="traslado.html"><button id="traslados" name="traslados">Traslados</button></a>
+    <main class="panel">
+        <p id="usuarioId"></p>
 
-   <a href="cargardoc.html"><button id="documentos" name="documentos">Documentos</button></a>
+        <section aria-labelledby="operacionesTitulo">
+            <h1 id="operacionesTitulo">Operaciones</h1>
+            <nav class="accesos" aria-label="Operaciones">
+                <a href="traslado.html">Traslados</a>
+                <a href="cargardoc.html">Documentos</a>
+                <a href="ambulancia.html">Ambulancias</a>
+            </nav>
+        </section>
 
-   <a href="ambulancia.html"><button id="ambulancia" name="ambulancia">Ambulancias</button></a>
+        <section aria-labelledby="registrosTitulo">
+            <h2 id="registrosTitulo">Registros</h2>
+            <nav class="accesos" aria-label="Registros">
+                <a href="registroAmbulancias.html">Registrar ambulancia</a>
+                <a href="registroConductores.html">Registrar conductor</a>
+                <a href="registroCopilotos.html">Registrar copiloto</a>
+                <a href="registroElementos.html">Registrar elemento de traslado</a>
+                <a href="registroTiposTraslados.html">Registrar tipo de traslado</a>
+                <a href="usuariosSistema.html">Registrar usuario de sistema</a>
+            </nav>
+        </section>
+    </main>
 
 
     <script src="../js/dashboard.js"></script>
