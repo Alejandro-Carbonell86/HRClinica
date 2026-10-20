@@ -1,18 +1,18 @@
 const btn = document.getElementById('btn');
-        const resultado = document.getElementById('resultado');
+const resultado = document.getElementById('resultado');
 
-        btn.addEventListener('click', () => {
+btn.addEventListener('click', () => {
 
-            resultado.textContent = 'Obteniendo ubicación...';
+    resultado.textContent = 'Obteniendo ubicación...';
 
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    const lat = position.coords.latitude;
-                    const lon = position.coords.longitude;
-                    resultado.innerHTML = `
+    navigator.geolocation.getCurrentPosition(
+        (posicion) => {
+            const lat = posicion.coords.latitude;
+            const lon = posicion.coords.longitude;
+            resultado.innerHTML = `
                         <strong>Latitud:</strong> ${lat}<br>
                         <strong>Longitud:</strong> ${lon}<br>
                     `;
-                },
-            );
-        });
+        },
+    );
+});

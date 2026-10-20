@@ -74,7 +74,7 @@ if ($archivo['error'] === 0) {
     $ruta_completa = $directorio . $nombre_unico;
     
     // Ruta para la base de datos (para acceder desde web)
-    $ruta_bd = "/HR_Clinica/documentos/" . $nombre_unico;
+    $ruta_bd = "../documentos/" . $nombre_unico;
     
     // MOVER ARCHIVO
     if (move_uploaded_file($archivo['tmp_name'], $ruta_completa)) {

@@ -144,12 +144,12 @@ CREATE TABLE `documentos` (
 --
 
 INSERT INTO `documentos` (`id_documento`, `titulo`, `descripcion`, `archivo_nombre`, `archivo_ruta`, `id_categoria`, `fecha_publicacion`, `activo`) VALUES
-(1, '6a9af8b858910.png', NULL, 'asd', '/HR_Clinica/documentos/6a9af8b858910.png', NULL, '2026-09-04 16:58:32', 1),
-(2, '6a9af941dc76d.pdf', NULL, 'Jorge', '/HR_Clinica/documentos/6a9af941dc76d.pdf', NULL, '2026-09-04 17:00:49', 1),
-(3, '6a9af97e6f382.png', NULL, 'sd', '/HR_Clinica/documentos/6a9af97e6f382.png', NULL, '2026-09-04 17:01:50', 1),
-(4, '6a9af9b4cd02d.png', NULL, 'terr', '/HR_Clinica/documentos/6a9af9b4cd02d.png', NULL, '2026-09-04 17:02:44', 1),
-(5, '6a9b19ea7b58e.png', NULL, 'Direccion', '/HR_Clinica/documentos/6a9b19ea7b58e.png', NULL, '2026-09-04 19:20:10', 1),
-(6, '6a9f6f3d840d6.png', NULL, 'Documento JS', '/HR_Clinica/documentos/6a9f6f3d840d6.png', NULL, '2026-09-08 02:13:17', 1);
+(1, '6a9af8b858910.png', NULL, 'asd', '../documentos/6a9af8b858910.png', NULL, '2026-09-04 16:58:32', 1),
+(2, '6a9af941dc76d.pdf', NULL, 'Jorge', '../documentos/6a9af941dc76d.pdf', NULL, '2026-09-04 17:00:49', 1),
+(3, '6a9af97e6f382.png', NULL, 'sd', '../documentos/6a9af97e6f382.png', NULL, '2026-09-04 17:01:50', 1),
+(4, '6a9af9b4cd02d.png', NULL, 'terr', '../documentos/6a9af9b4cd02d.png', NULL, '2026-09-04 17:02:44', 1),
+(5, '6a9b19ea7b58e.png', NULL, 'Direccion', '../documentos/6a9b19ea7b58e.png', NULL, '2026-09-04 19:20:10', 1),
+(6, '6a9f6f3d840d6.png', NULL, 'Documento JS', '../documentos/6a9f6f3d840d6.png', NULL, '2026-09-08 02:13:17', 1);
 
 -- --------------------------------------------------------
 

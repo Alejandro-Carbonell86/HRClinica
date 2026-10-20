@@ -11,7 +11,7 @@ subir.addEventListener('click', async (e) => {
     doc.append('nombre', nombre.value);
     doc.append('archivo', documento.files[0]);
 
-    let respuesta = await fetch('/HR_Clinica/php/cargar_doc.php', {
+    let respuesta = await fetch('../php/cargar_doc.php', {
         method: 'POST',
         body: doc
     });
@@ -57,7 +57,8 @@ boton.addEventListener('click', async () => {
         let docEncontrado = documentos.find(doc => doc.id == id);
 
         if (docEncontrado) {
-            prev.src = docEncontrado.ruta;
+            const nombreArchivo = docEncontrado.ruta.split('/').pop();
+            prev.src = `../documentos/${encodeURIComponent(nombreArchivo)}`;
         }
     })
 
