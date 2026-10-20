@@ -29,10 +29,12 @@ if (password_verify($contrasenia, $fila['password_hash'])){
     $_SESSION['email'] = $fila['email'];
     $_SESSION['rol'] = $fila['rol'];
     $_SESSION['id_usuario'] = $fila['id_usuario'];
+    $_SESSION['id_conductor'] = $fila['id_conductor'];
     
     echo json_encode([
         'exito'=> true,
-        'usuario' => $fila]);
+        'usuario' => $fila['nombre_usuario'],
+        'rol' => $fila['rol']]);
 } else {
 
     echo json_encode(['error' => 'Contraseña incorrecta']);

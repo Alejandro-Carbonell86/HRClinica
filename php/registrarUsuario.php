@@ -10,8 +10,27 @@ $nombre = $_POST['nombre'];
 $email = $_POST['email'];
 $rol = $_POST['rol'];
 $id_empleado = $_POST['numeroId'];
+$idConductor = $rol === 'chofer' ? (int)($_POST['idConductor'] ?? 0) : null;
 $estado = 1;
 $fecha_hora = date('Y-m-d H:i:s');
+
+if ($rol === 'chofer' && $idConductor < 1) {
+    echo 'Seleccioná el conductor asociado a la cuenta.';
+    exit;
+}
+
+if ($rol === 'chofer') {
+    $conductor = $con->prepare("SELECT id_conductor FROM conductores WHERE id_conductor = ? AND activo = 1");
+    $conductor->bind_param('i', $idConductor);
+    $conductor->execute();
+    if ($conductor->get_result()->num_rows === 0) {
+        echo 'El conductor seleccionado no está disponible.';
+        exit;
+    }
+    $conductor->close();
+} else {
+    $idConductor = null;
+}
 
 
 $hash = password_hash($contrasenia, PASSWORD_BCRYPT);
@@ -34,11 +53,11 @@ if($resultado->num_rows > 0){
     exit;
 }
 
-$stmt = $con->prepare("INSERT INTO usuarios_sistema (nombre_usuario, password_hash, nombre_completo, 
-email, rol, id_empleado, activo, ultimo_acceso) VALUES (?,?,?,?,?,?,?,?)");
+$stmt = $con->prepare("INSERT INTO usuarios_sistema (nombre_usuario, password_hash, nombre_completo,
+email, rol, id_empleado, id_conductor, activo, ultimo_acceso) VALUES (?,?,?,?,?,?,?,?,?)");
 
-$stmt->bind_param('sssssiss', $usuario, $hash, $nombre, $email, $rol, 
-$id_empleado, $estado, $fecha_hora);
+$stmt->bind_param('ssssssiis', $usuario, $hash, $nombre, $email, $rol,
+$id_empleado, $idConductor, $estado, $fecha_hora);
 
 if($stmt->execute()){
     echo "ok";

@@ -121,6 +121,31 @@ article:hover {
     grid-area: listar;
 }
 
+#listaTraslados {
+    display: grid;
+    gap: 12px;
+}
+
+.traslado-item {
+    padding: 14px;
+    border: 1px solid #cbd7d1;
+    border-left: 5px solid #26745a;
+    background: #fff;
+    overflow-wrap: anywhere;
+}
+
+.traslado-item h3 {
+    margin: 0 0 8px;
+}
+
+.traslado-item p {
+    margin: 6px 0;
+}
+
+.traslado-item button {
+    margin: 8px 10px 0 0;
+}
+
 
 @media (max-width: 768px) {
     #central {

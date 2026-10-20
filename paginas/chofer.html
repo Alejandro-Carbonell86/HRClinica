@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vista Chofer</title>
+    <link rel="stylesheet" href="../css/chofer.css">
 </head>
 <body>
-
-    <h1>Mi ubicación</h1>
-    <button id="btn">Obtener ubicación</button>
-    <p id="resultado"></p>
+    <main>
+        <h1>Mis traslados asignados</h1>
+        <p id="resultado" role="status">Cargando traslados...</p>
+        <section id="listaTraslados" aria-live="polite"></section>
+        <a href="../index.html">Volver al inicio</a>
+    </main>
 
     <script src="../js/chofer.js"></script>
 

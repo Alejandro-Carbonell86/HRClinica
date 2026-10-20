@@ -19,6 +19,8 @@ formulario.addEventListener('submit', async (e) => {
     if (objetoJSON.error) {
         alert(objetoJSON.error);
     } else if (objetoJSON.exito) {
-        window.location.href = './paginas/dashboard.html';
+        window.location.href = objetoJSON.rol === 'chofer'
+            ? './paginas/chofer.html'
+            : './paginas/dashboard.html';
     }
 })

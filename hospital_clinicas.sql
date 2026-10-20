@@ -383,8 +383,9 @@ CREATE TABLE `usuarios_sistema` (
   `password_hash` varchar(255) NOT NULL,
   `nombre_completo` varchar(200) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `rol` enum('administrador','funcionario','supervisor') DEFAULT 'funcionario',
+  `rol` enum('administrador','funcionario','supervisor','chofer') DEFAULT 'funcionario',
   `id_empleado` varchar(20) DEFAULT NULL,
+  `id_conductor` int(11) DEFAULT NULL,
   `activo` tinyint(1) DEFAULT 1,
   `ultimo_acceso` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -557,7 +558,8 @@ ALTER TABLE `tipos_traslado`
 ALTER TABLE `usuarios_sistema`
   ADD PRIMARY KEY (`id_usuario`),
   ADD UNIQUE KEY `nombre_usuario` (`nombre_usuario`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `id_conductor` (`id_conductor`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -761,6 +763,12 @@ ALTER TABLE `solicitudes_traslado`
   ADD CONSTRAINT `solicitudes_traslado_ibfk_3` FOREIGN KEY (`id_ambulancia`) REFERENCES `ambulancias` (`id_ambulancia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `solicitudes_traslado_ibfk_4` FOREIGN KEY (`id_ruta`) REFERENCES `rutas` (`id_ruta`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `solicitudes_traslado_ibfk_5` FOREIGN KEY (`id_elemento`) REFERENCES `elementos_traslado` (`id_elemento`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `usuarios_sistema`
+--
+ALTER TABLE `usuarios_sistema`
+  ADD CONSTRAINT `usuarios_sistema_ibfk_1` FOREIGN KEY (`id_conductor`) REFERENCES `conductores` (`id_conductor`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

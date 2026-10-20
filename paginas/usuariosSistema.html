@@ -28,7 +28,17 @@
             <label for="rol">Seleccione Rol:</label>
             <select name="rol" id="rol">
                 <option value="administrador">Administrador</option>
+                <option value="funcionario">Funcionario</option>
+                <option value="supervisor">Supervisor</option>
+                <option value="chofer">Chofer</option>
             </select>
+
+            <div id="conductorElegido" hidden>
+                <label for="idConductor">Conductor:</label>
+                <select name="idConductor" id="idConductor">
+                    <option value="">Seleccioná un conductor</option>
+                </select>
+            </div>
 
             <label for="numeroId">Ingrese Número de Empleado: </label>
             <input type="number" id="numeroId" name="numeroId">
