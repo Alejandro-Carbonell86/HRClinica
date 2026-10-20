@@ -67,6 +67,52 @@ article:hover {
     grid-area: registrar;
 }
 
+#formularioTraslado {
+    display: grid;
+    gap: 10px;
+}
+
+#formularioTraslado label {
+    color: #333;
+    font-weight: 600;
+}
+
+#formularioTraslado input,
+#formularioTraslado select,
+#formularioTraslado textarea,
+#formularioTraslado button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #b8bec8;
+    border-radius: 4px;
+    font: inherit;
+}
+
+#formularioTraslado select[multiple] {
+    min-height: 110px;
+}
+
+#formularioTraslado button {
+    border: 0;
+    background: #26745a;
+    color: white;
+    cursor: pointer;
+}
+
+#formularioTraslado button:hover {
+    background: #1c5c46;
+}
+
+#visualizar {
+    min-height: 460px;
+    padding: 0;
+    overflow: hidden;
+}
+
+#mensajeTraslado {
+    overflow-wrap: anywhere;
+}
+
 #visualizar {
     grid-area: visualizar;
 }

@@ -20,13 +20,16 @@
     <main id="central">
 
         <article id="registrar">
-            <button id="ingresarO">Ingresar Origen</button>
-            <input type="text" id="lat" name="lat">
-            <input type="text" name="" id="lng">
+            <form id="formularioTraslado">
+            <button type="button" id="ingresarO">Ingresar Origen</button>
+            <label for="lat">Latitud de origen:</label>
+            <input type="text" id="lat" name="lat" readonly>
+            <label for="lng">Longitud de origen:</label>
+            <input type="text" id="lng" name="lng" readonly>
 
             <br><br>
 
-            <label for="departament">Seleciona Departamento:</label>
+            <label for="departamento">Selecciona departamento:</label>
             <select id="departamento">
                 <option value="">-- Elegí departamento --</option>
                 <option value="Montevideo">Montevideo</option>
@@ -55,11 +58,29 @@
             <label for="dir">Ingrese Dirección:</label>
             <input type="text" id="dir" name="dir">
 
-            <button id="ubicar">Ubicar</button>
-            
-            <br><br>
+            <button type="button" id="ubicar">Ubicar y rutear</button>
 
-            <button id="rutear">Rutear</button>
+            <label for="fechaSalida">Fecha y hora de salida:</label>
+            <input type="datetime-local" id="fechaSalida" required>
+
+            <label for="ambulancia">Ambulancia:</label>
+            <select id="ambulancia" required></select>
+
+            <label for="conductor">Conductor / chofer:</label>
+            <select id="conductor" required></select>
+
+            <label for="copiloto">Copiloto:</label>
+            <select id="copiloto"></select>
+
+            <label for="elemento">Elemento del traslado:</label>
+            <select id="elemento"></select>
+
+            <label for="observaciones">Observaciones:</label>
+            <textarea id="observaciones"></textarea>
+
+            <button type="submit" id="guardarTraslado">Guardar traslado</button>
+            <p id="mensajeTraslado"></p>
+            </form>
         </article>
 
         <article id="listar">
