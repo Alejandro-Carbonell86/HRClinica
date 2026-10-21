@@ -43,7 +43,7 @@ async function cargarTraslados() {
             return;
         }
 
-        mensajeTraslados.textContent = 'La lista se actualiza automáticamente.';
+        
         traslados.forEach(traslado => {
             const articulo = document.createElement('article');
             articulo.className = 'traslado-item';
