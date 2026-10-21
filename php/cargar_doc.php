@@ -57,16 +57,7 @@ if ($archivo['error'] === 0) {
     // Ruta física en el servidor
     $directorio = __DIR__ . '/../documentos/';
     
-    // Crear directorio si no existe
-    if (!is_dir($directorio)) {
-        if (!mkdir($directorio, 0755, true)) {
-            echo json_encode([
-                'exito' => false,
-                'mensaje' => 'No se pudo crear el directorio: ' . $directorio
-            ]);
-            exit;
-        }
-    }
+    
     
     // Verificar permisos
     if (!is_writable($directorio)) {
