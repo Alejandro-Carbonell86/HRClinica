@@ -12,25 +12,37 @@
     <header>
         <h1>Cargar Documento</h1>
     </header>
-    <form id="formularioCarga">
-        <label for="nombre_archivo">Nombre Archivo:</label>
-        <input type="text" id="nombre_archivo" name="nombre">
+    <main class="contenedor-principal">
+        <section class="seccion-izquierda">
+            <h2 class="titulo-seccion">Subir documento</h2>
+            <form id="formularioCarga">
+                <label for="nombre_archivo">Nombre del documento:</label>
+                <input type="text" id="nombre_archivo" name="nombre" required>
 
-        <label for="documento">Seleccionar Documento:</label>
-        <input type="file" id="documento">
+                <label for="documento">Seleccionar archivo:</label>
+                <input type="file" id="documento" name="archivo" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" required>
 
-        <input type="submit" id="carga_documento" value="Subir">
-    </form>
+                <button type="submit" id="carga_documento">Subir documento</button>
+            </form>
+            <div id="mensaje" role="status" aria-live="polite"></div>
+        </section>
 
-    <div id="mensaje"></div>
+        <hr class="separador-movil">
 
-    <section id="obtener">
+        <section class="seccion-derecha">
+            <h2 class="titulo-seccion">Documentos guardados</h2>
+            <p id="mensajeLista" role="status" aria-live="polite"></p>
+            <div id="listaDoc"></div>
+        </section>
+    </main>
 
-        <button id="boton">Obtener Documento</button>
-
-        <select name="listaDoc" id="listaDoc"></select>
-
+    <section id="zonaImpresion" aria-hidden="true">
+        <h1 id="tituloImpresion"></h1>
+        <div id="qrImpresion"></div>
+        <p id="urlImpresion"></p>
     </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="../js/cargar.js"></script>
 </body>
 

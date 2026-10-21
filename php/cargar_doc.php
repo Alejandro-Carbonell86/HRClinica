@@ -5,6 +5,13 @@ header('Content-Type: application/json');
 
 // INCLUIR CONEXIÓN
 require_once 'conexion.php';
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    http_response_code(401);
+    echo json_encode(['exito' => false, 'mensaje' => 'Iniciá sesión para subir documentos.']);
+    exit;
+}
 
 // VERIFICAR DATOS RECIBIDOS
 if (!isset($_FILES['archivo']) || !isset($_POST['nombre'])) {
@@ -43,7 +50,7 @@ if ($archivo['error'] === 0) {
     }
     
     // CREAR NOMBRE ÚNICO CON UNIQID
-    $nombre_unico = uniqid() . '.' . $extension;
+    $nombre_unico = bin2hex(random_bytes(12)) . '.' . $extension;
     
     // DEFINIR RUTAS
 
@@ -52,7 +59,7 @@ if ($archivo['error'] === 0) {
     
     // Crear directorio si no existe
     if (!is_dir($directorio)) {
-        if (!mkdir($directorio, 0777, true)) {
+        if (!mkdir($directorio, 0755, true)) {
             echo json_encode([
                 'exito' => false,
                 'mensaje' => 'No se pudo crear el directorio: ' . $directorio
@@ -91,7 +98,7 @@ if ($archivo['error'] === 0) {
             exit;
         }
         
-        $stmt->bind_param("sss", $nombre_unico, $nombre, $ruta_bd);
+        $stmt->bind_param("sss", $nombre, $nombre_unico, $ruta_bd);
         
         if ($stmt->execute()) {
             // ÉXITO - Devolver JSON con todos los datos
@@ -100,7 +107,7 @@ if ($archivo['error'] === 0) {
                 'mensaje' => 'Documento subido correctamente',
                 'datos' => [
                     'id' => $stmt->insert_id,
-                    'titulo' => $nombre,
+                    'nombre' => $nombre,
                     'archivo' => $nombre_unico,
                     'ruta' => $ruta_bd,
                     'tamano' => $archivo['size'],
@@ -109,6 +116,7 @@ if ($archivo['error'] === 0) {
                 ]
             ]);
         } else {
+            unlink($ruta_completa);
             // Error al guardar en BD
             echo json_encode([
                 'exito' => false,
